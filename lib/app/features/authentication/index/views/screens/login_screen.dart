@@ -21,7 +21,7 @@ class LoginScreen extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    // final controller = Get.put(LoginController());
     return MaterialApp(
       // Add MaterialApp as the ancestor
       home: Scaffold(
@@ -29,7 +29,7 @@ class LoginScreen extends GetView<LoginController> {
         body: SafeArea(
           child: Container(
             height: 1.sh,
-            padding: EdgeInsets.all(25.0),
+            padding: EdgeInsets.all(25.0.sp),
             color: Colors.white,
             child: Wrap(
               direction: Axis.horizontal,
@@ -64,29 +64,37 @@ class LoginScreen extends GetView<LoginController> {
                         width: 1.sw,
                         child: CustomButton(
                           label: "Login",
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed("/dashboard");
+                          },
                           textColor: Colors.white,
                         )),
                     SizedBox(
                       height: 15.sp,
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Belum punya akun? ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 10.0.sp,
+                    Wrap(
+                      spacing: 5.sp,
+                      children: [
+                        Text(
+                          "Belum punya akun?",
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'Daftar',
+                        InkWell(
+                          onTap: () => Get.toNamed("/register"),
+                          child: Text(
+                            "Daftar",
                             style: TextStyle(
+                              fontSize: 10.sp,
                               color: Color(0xFFBA704F),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
+                        )
+                      ],
                     ),
                     SizedBox(
                       height: 15.sp,

@@ -1,9 +1,14 @@
 library dashboard;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:marketplace/app/features/dashboard/cart/views/cart_view.dart';
 import 'package:marketplace/app/features/dashboard/explore/views/screens/explore_screen.dart';
+import 'package:marketplace/app/features/dashboard/home/views/home_view.dart';
+import 'package:marketplace/app/features/dashboard/order/views/order_view.dart';
+import 'package:marketplace/app/features/dashboard/profile/views/profile_view.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 // binding
@@ -49,19 +54,20 @@ class DashboardScreen extends GetView<DashboardController> {
 
   List<Widget> _buildScreens() {
     return [
+      HomeView(),
       ExploreScreen(),
-      Center(child: Text("Favorite Screen")),
-      Center(child: Text("Messages Screen")),
-      Center(child: Text("Profil Screen")),
+      CartView(),
+      OrderView(),
+      ProfileView()
     ];
   }
 
   List<PersistentBottomNavBarItem> _buildNavBarsItems() {
     return [
-      _navbarItem(iconData: FontAwesomeIcons.thLarge, title: "Explore"),
-      _navbarItem(iconData: FontAwesomeIcons.solidStar, title: "Favorite"),
-      _navbarItem(
-          iconData: FontAwesomeIcons.solidCommentAlt, title: "Messages"),
+      _navbarItem(iconData: FontAwesomeIcons.thLarge, title: "Home"),
+      _navbarItem(iconData: FontAwesomeIcons.search, title: "Explore"),
+      _navbarItem(iconData: FontAwesomeIcons.shoppingBasket, title: "Cart"),
+      _navbarItem(iconData: FontAwesomeIcons.list, title: "History"),
       _navbarItem(iconData: FontAwesomeIcons.userAlt, title: "Profil"),
     ];
   }
@@ -71,12 +77,12 @@ class DashboardScreen extends GetView<DashboardController> {
     required String title,
   }) {
     return PersistentBottomNavBarItem(
-      icon: Icon(iconData, size: 22),
+      icon: Icon(iconData, size: 16.sp),
       title: (title),
       activeColorPrimary: Color.fromRGBO(246, 246, 246, 1),
       inactiveColorPrimary: Color.fromRGBO(187, 193, 202, 1),
-      activeColorSecondary: Theme.of(Get.context!).primaryColor,
-      textStyle: TextStyle(fontWeight: FontWeight.bold),
+      activeColorSecondary: Color(0xFFBA704F),
+      textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp),
     );
   }
 }

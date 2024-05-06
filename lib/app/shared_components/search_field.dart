@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketplace/app/constans/app_constants.dart';
 
 class SearchField extends StatelessWidget {
@@ -17,8 +18,12 @@ class SearchField extends StatelessWidget {
           borderRadius: BorderRadius.circular(kBorderRadius),
           borderSide: BorderSide.none,
         ),
-        prefixIcon: Icon(Icons.search),
+        prefixIcon: Icon(
+          Icons.search,
+          size: 16.sp,
+        ),
         hintText: "what are you looking for",
+        hintStyle: TextStyle(fontSize: 12.sp),
       ),
       onEditingComplete: () {
         FocusScope.of(context).unfocus();

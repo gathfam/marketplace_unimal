@@ -1,6 +1,7 @@
 library explore;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:marketplace/app/config/routes/app_pages.dart';
@@ -17,9 +18,7 @@ part '../../bindings/explore_binding.dart';
 // controller
 part '../../controllers/explore_controller.dart';
 
-// component
-part '../components/product_content.dart';
-part '../components/tab_bar_content.dart';
+part '../../component/tab_bar_content.dart';
 
 class ExploreScreen extends GetView<ExploreController> {
   const ExploreScreen({Key? key}) : super(key: key);
@@ -27,57 +26,61 @@ class ExploreScreen extends GetView<ExploreController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: NestedScrollView(
-        physics: BouncingScrollPhysics(),
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              toolbarHeight: 100,
-              title: Row(
-                children: [
-                  Expanded(
-                    child: SearchField(
-                      onSearch: (value) {
-                        print("search : $value");
-                      },
-                    ),
-                  ),
-                  SizedBox(width: kSpacing),
-                  FilterButton(
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            )
-          ];
-        },
-        body: _TabBarContent(
-          tabs: [
-            Text("All"),
-            Text("Fashion"),
-            Text("Electronic"),
-            Text("Toys & Hobbies"),
-            Text("Art"),
-            Text("Sporting Goods"),
-            Text("Home & Garden"),
-          ],
+      child: Container(
+        padding: EdgeInsets.all(25.sp),
+        child: Wrap(
           children: [
-            _ProductContent(
-              controller.getAllProduct(),
-              onPressed: (product) => controller.goToDetailProduct(product),
-            ),
-            _ProductContent(
-              controller.getFashionProduct(),
-              onPressed: (product) => controller.goToDetailProduct(product),
-            ),
-            Center(child: Text("Electronic")),
-            Center(child: Text("Toys & Hobbies")),
-            Center(child: Text("Art")),
-            Center(child: Text("Sporting Goods")),
-            Center(child: Text("Home & Garden")),
+            SearchField(
+              onSearch: (value) {
+                print("search : $value");
+              },
+            )
           ],
         ),
       ),
+      // child: NestedScrollView(
+      //   physics: BouncingScrollPhysics(),
+      //   headerSliverBuilder: (context, innerBoxIsScrolled) {
+      //     return [
+      //       SliverAppBar(
+      //         toolbarHeight: 100,
+      //         title: Row(
+      //           children: [
+      //             Expanded(
+      //               child: SearchField(
+      //                 onSearch: (value) {
+      //                   print("search : $value");
+      //                 },
+      //               ),
+      //             ),
+      //             SizedBox(width: kSpacing),
+      //             FilterButton(
+      //               onPressed: () {},
+      //             ),
+      //           ],
+      //         ),
+      //       )
+      //     ];
+      //   },
+      //   body: _TabBarContent(
+      //     tabs: [
+      //       Text("All"),
+      //       Text("Electronic"),
+      //       Text("Toys & Hobbies"),
+      //       Text("Art"),
+      //       Text("Sporting Goods"),
+      //       Text("Home & Garden"),
+      //     ],
+      //     children: [
+      //       Center(child: Text("All")),
+      //       Center(child: Text("Electronic")),
+      //       Center(child: Text("Toys & Hobbies")),
+      //       Center(child: Text("Art")),
+      //       Center(child: Text("Sporting Goods")),
+      //       Center(child: Text("Home & Garden")),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

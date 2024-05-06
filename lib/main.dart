@@ -19,16 +19,19 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            // primarySwatch: Colors.blue,
+
+            textTheme: Typography.englishLike2018.apply(
+                fontSizeFactor: 1.sp,
+                bodyColor: Colors.black,
+                displayColor: Colors.black),
           ),
           debugShowCheckedModeBanner: false, // Remove the debug banner
           initialRoute: AppPages.initial,
           getPages: AppPages.routes,
           home: Scaffold(
             // Using Scaffold to set background color
-            backgroundColor:
-                Color(0xFF000000), // Set background color here
+            backgroundColor: Color(0xFF000000), // Set background color here
             body: child,
           ),
         );

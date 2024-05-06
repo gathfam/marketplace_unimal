@@ -1,4 +1,4 @@
-part of explore;
+part of home;
 
 class _ProductContent extends StatelessWidget {
   const _ProductContent(this.data, {required this.onPressed, Key? key})
