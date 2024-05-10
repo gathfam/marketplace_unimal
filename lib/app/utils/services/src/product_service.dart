@@ -30,6 +30,17 @@ class ProductService extends RestApiServices {
       EminaLipmask
     ];
   }
+  List<Product> getListPembayaran(){
+    return [
+      EminaLipmask
+    ];
+  }
+
+  List<Product> getListOrder(){
+    return [
+      EminaLipmask
+    ];
+  }
 
   List<Product> getFashion() {
     return [];

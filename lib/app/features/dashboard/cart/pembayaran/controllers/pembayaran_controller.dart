@@ -1,9 +1,10 @@
-import 'package:get/get.dart';
+part of pembayaran;
 
 class PembayaranController extends GetxController {
   //TODO: Implement PembayaranController
+  final productService = ProductService();
 
-  final count = 0.obs;
+  GetItemPembayaran() => productService.getListPembayaran();
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +19,4 @@ class PembayaranController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

@@ -42,9 +42,6 @@ class CartCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10.sp),
-      margin: data.id == 0
-          ? EdgeInsets.only(left: 25.sp)
-          : EdgeInsets.only(left: 0.sp),
       // color: Colors.black,
       // height: 170.h,
       width: 1.sw,

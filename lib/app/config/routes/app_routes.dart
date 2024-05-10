@@ -28,6 +28,7 @@ class _Paths {
   static const CART = '/cart';
   static const ORDER = '/order';
   static const SPLASH_SCREEN = '/splash-screen';
+  static const PEMBAYARAN = '/pembayaran';
 
   // Example :
   // static const index = '/';

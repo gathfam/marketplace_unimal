@@ -68,7 +68,7 @@ class CartView extends GetView<CartController> {
                           child: CustomButton(
                             label: "Check Out",
                             onTap: () {
-                              // Get.toNamed("/dashboard");
+                              Get.toNamed("/pembayaran");
                             },
                             textColor: Colors.white,
                           )),

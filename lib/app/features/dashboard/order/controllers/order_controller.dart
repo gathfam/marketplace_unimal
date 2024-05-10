@@ -2,8 +2,11 @@ part of order;
 
 class OrderController extends GetxController {
   //TODO: Implement OrderController
+  final productService = ProductService();
 
-  final count = 0.obs;
+  List<Product> getListOrder() => productService.getListOrder();
+  
+
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +22,5 @@ class OrderController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  
 }

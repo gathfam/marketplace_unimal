@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-
-import '../controllers/pembayaran_controller.dart';
+part of pembayaran;
 
 class PembayaranBinding extends Bindings {
   @override
