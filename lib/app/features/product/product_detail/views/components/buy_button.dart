@@ -10,7 +10,7 @@ class _BuyButton extends StatelessWidget {
     return Expanded(
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text("Buy Now"),
+        child: Text("Add To Chart"),
       ),
     );
   }

@@ -30,7 +30,7 @@ class LoginScreen extends GetView<LoginController> {
           child: Container(
             height: 1.sh,
             padding: EdgeInsets.all(25.0.sp),
-            color: Colors.white,
+            
             child: Wrap(
               direction: Axis.horizontal,
               alignment: WrapAlignment.spaceBetween,

@@ -12,6 +12,8 @@ import '../../features/dashboard/profile/views/profile_view.dart';
 import '../../features/landing/views/landing_view.dart';
 import '../../features/product/product_detail/views/screens/product_detail_screen.dart';
 import '../../features/splash_screen/views/splash_screen_view.dart';
+import '../../features/dashboard/cart/pembayaran/bindings/pembayaran_binding.dart';
+import '../../features/dashboard/cart/pembayaran/views/pembayaran_view.dart';
 
 // import '../../features/dashboard/home/bindings/home_binding.dart';
 
@@ -74,6 +76,11 @@ class AppPages {
       name: Routes.SPLASH_SCREEN,
       page: () => const SplashScreenView(),
       binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: Routes.PEMBAYARAN,
+      page: () => const PembayaranView(),
+      binding: PembayaranBinding(),
     ),
   ];
 }

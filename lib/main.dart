@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           getPages: AppPages.routes,
           home: Scaffold(
             // Using Scaffold to set background color
-            backgroundColor: Color(0xFF000000), // Set background color here
+            backgroundColor: Color(0xFFFCFB), // Set background color here
             body: child,
           ),
         );

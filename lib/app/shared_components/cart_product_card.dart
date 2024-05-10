@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:marketplace/app/constans/app_constants.dart';
+import 'package:marketplace/app/shared_components/custom_button.dart';
 import 'package:marketplace/app/utils/ui/ui_utils.dart';
 
-class ProductCardData {
+class CartCardData {
   final ImageProvider image;
   final double price;
   final int id;
@@ -13,7 +14,7 @@ class ProductCardData {
   final String name;
   final bool initialFavorite;
 
-  const ProductCardData({
+  const CartCardData({
     required this.image,
     required this.id,
     required this.price,
@@ -23,8 +24,8 @@ class ProductCardData {
   });
 }
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+class CartCard extends StatelessWidget {
+  const CartCard({
     required this.data,
     required this.heroTag,
     this.onTap,
@@ -33,7 +34,7 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
 
   final String heroTag;
-  final ProductCardData data;
+  final CartCardData data;
   final Function()? onTap;
   final Function(bool isFavorite)? onFavoriteChanged;
 
@@ -46,10 +47,19 @@ class ProductCard extends StatelessWidget {
           : EdgeInsets.only(left: 0.sp),
       // color: Colors.black,
       // height: 170.h,
-      width: 150.w,
-      child: Column(
+      width: 1.sw,
+      child: Row(
         // crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Transform.scale(
+            scale: 1.2,
+            child: Checkbox(
+              value: true,
+              onChanged: (value) => print(value),
+              fillColor: MaterialStateProperty.all(Color(0xFFBA704F)),
+            ),
+          ),
           Hero(
             tag: heroTag,
             child: GestureDetector(
@@ -79,6 +89,18 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: kSpacing),
+          _Indicator()
+        ],
+      ),
+    );
+  }
+
+  Widget _Indicator() {
+    return Expanded(
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        runSpacing: 15.sp,
+        children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,6 +108,25 @@ class ProductCard extends StatelessWidget {
               _buildBrandProduct(data.brand),
               _buildNameProduct(data.name),
               _buildPriceText(data.price),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                child: CustomButton(label: "-", onTap: () {}),
+              ),
+              Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 15.sp, vertical: 8.sp),
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10.sp)),
+                child: Text("0"),
+              ),
+              SizedBox(
+                child: CustomButton(label: "+", onTap: () {}),
+              ),
             ],
           )
         ],
@@ -97,7 +138,8 @@ class ProductCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(2.0.sp),
       // padding: EdgeInsets.all(10.sp),
-      height: 160.sp,
+      height: 180.sp,
+      width: 120.sp,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25.0),
           color: Colors.white,
@@ -154,7 +196,7 @@ class ProductCard extends StatelessWidget {
 
   Widget _buildPriceText(double price) {
     return Text(
-      "Rp ${price}00",
+      "Rp ${price}00,-",
       style: TextStyle(
         color: kFontColorPallets[0],
         // fontWeight: FontWeight.bold,

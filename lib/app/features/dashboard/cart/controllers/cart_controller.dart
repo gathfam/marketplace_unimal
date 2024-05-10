@@ -1,8 +1,12 @@
 part of cart;
+
 class CartController extends GetxController {
   //TODO: Implement CartController
 
-  final count = 0.obs;
+  final productService = ProductService();
+
+  Item1() => productService.getListCart();
+
   @override
   void onInit() {
     super.onInit();
@@ -17,6 +21,4 @@ class CartController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

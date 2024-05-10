@@ -13,7 +13,7 @@ class _ShareButton extends StatelessWidget {
         color: Theme.of(context).iconTheme.color,
       ),
       onPressed: onPressed,
-      size: 40,
+      size: 28.sp,
       borderRadius: 10,
       tooltip: "Share",
     );

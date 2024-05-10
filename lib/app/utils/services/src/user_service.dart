@@ -11,27 +11,27 @@ class UserService extends RestApiServices {
   }
   UserService._internal();
 
-  User getUserByID(String id) {
-    if (_userA.id == id) {
-      return _userA;
-    } else {
-      return _userB;
-    }
-  }
+  // User getUserByID(String id) {
+  //   if (_userA.id == id) {
+  //     return _userA;
+  //   } else {
+  //     return _userB;
+  //   }
+  // }
 
-  final _userA = User(
-    id: "fwg123",
-    name: "Gia Store",
-    country: "Indonesia",
-    city: "Bandung",
-    profilImage: AssetImage(ImageRasterPath.market),
-  );
+  // final _userA = User(
+  //   id: "fwg123",
+  //   name: "Gia Store",
+  //   country: "Indonesia",
+  //   city: "Bandung",
+  //   profilImage: AssetImage(ImageRasterPath.market),
+  // );
 
-  final _userB = User(
-    id: "fwg345",
-    profilImage: AssetImage(ImageRasterPath.market2),
-    name: "Fashion Store",
-    country: "USA",
-    city: "New York",
-  );
+  // final _userB = User(
+  //   id: "fwg345",
+  //   profilImage: AssetImage(ImageRasterPath.market2),
+  //   name: "Fashion Store",
+  //   country: "USA",
+  //   city: "New York",
+  // );
 }

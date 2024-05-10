@@ -14,20 +14,14 @@ class ImageAnimationPath {
   // static const myAnim = "$_folderPath/my_anim.json";
 }
 
-class ImageRasterPath {
-  static const _folderPath = "assets/images/raster";
+class ImageEtalasePath {
+  static const _folderPath = "assets/images/Etalase";
 
-  static const bag = "$_folderPath/bag.png";
-  static const blueMidiDress = "$_folderPath/blue-midi-dress.png";
-  static const cardigan = "$_folderPath/cardigan.png";
-  static const cardigan2 = "$_folderPath/cardigan-2.png";
-  static const orangeBlouse = "$_folderPath/orange-blouse.png";
-  static const pinkJacket = "$_folderPath/pink-jacket.png";
-  static const shoes = "$_folderPath/shoes.png";
-  static const shoes2 = "$_folderPath/shoes-2.png";
-  static const vr = "$_folderPath/vr.png";
-  static const market = "$_folderPath/market.png";
-  static const market2 = "$_folderPath/market-2.png";
+  static const EminaLipmask = "$_folderPath/EminaLipmask30000.jpg";
+  static const EminaPowder = "$_folderPath/EminaPowder25000.jpg";
+  static const EminaSerum = "$_folderPath/EminaSerum40000.jpg";
+  static const GarnierMicellar = "$_folderPath/GarnierMicellar35000.jpg";
+  static const NpureCream = "$_folderPath/NpureCream79000.jpg";
 }
 
 class ImageVectorPath {

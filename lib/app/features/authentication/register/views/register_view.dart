@@ -18,7 +18,6 @@ class RegisterScreen extends GetView<RegisterController> {
         height: 1.sh,
         width: 1.sw,
         padding: EdgeInsets.all(25.sp),
-        color: Colors.white,
         child: Wrap(
           direction: Axis.horizontal,
           alignment: WrapAlignment.spaceBetween,

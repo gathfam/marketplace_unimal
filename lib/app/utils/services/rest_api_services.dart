@@ -6,10 +6,12 @@ import 'package:marketplace/app/constans/app_constants.dart';
 // model
 part 'model/product.dart';
 part 'model/user.dart';
+part 'model/etalase.dart';
 
 // src
 part 'src/product_service.dart';
 part 'src/user_service.dart';
+part 'src/etalase_service.dart';
 
 /// custom setup for request api
 class RestApiServices {

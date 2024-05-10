@@ -10,7 +10,7 @@ class _DescriptionText extends StatelessWidget {
       data,
       style: TextStyle(
         color: kFontColorPallets[2],
-        fontSize: 15,
+        fontSize: 10.sp,
       ),
     );
   }

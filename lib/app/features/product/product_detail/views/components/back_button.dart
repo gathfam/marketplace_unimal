@@ -13,8 +13,8 @@ class _BackButton extends StatelessWidget {
         color: Theme.of(context).iconTheme.color,
       ),
       onPressed: onPressed,
-      size: 40,
-      borderRadius: 10,
+      size: 28.sp,
+      borderRadius: 10.sp,
       tooltip: "Back",
     );
   }

@@ -9,28 +9,27 @@ class _ProductContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kSpacing),
-      child: StaggeredGridView.countBuilder(
-        physics: BouncingScrollPhysics(),
-        crossAxisCount: 4,
-        itemCount: data.length,
-        itemBuilder: (BuildContext context, int index) => ProductCard(
-          heroTag: data[index].id,
-          data: ProductCardData(
-            image: data[index].images[0],
-            initialFavorite: data[index].isFavorite,
-            name: data[index].name,
-            price: data[index].price,
-          ),
-          onTap: () {
-            onPressed(data[index]);
-          },
-        ),
-        staggeredTileBuilder: (int index) => StaggeredTile.fit(2),
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
-      ),
-    );
+    print(data);
+    // return Text("TES");
+    return Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        runAlignment: WrapAlignment.spaceBetween,
+        children: List.generate(data.length, (int index) {
+          // print(data[index]);
+          return ProductCard(
+            heroTag: data[index].id,
+            data: ProductCardData(
+              id: index,
+              image: data[index].images[0],
+              initialFavorite: true,
+              brand: data[index].brand,
+              name: data[index].name,
+              price: data[index].price,
+            ),
+            onTap: () {
+              onPressed(data[index]);
+            },
+          );
+        }));
   }
 }

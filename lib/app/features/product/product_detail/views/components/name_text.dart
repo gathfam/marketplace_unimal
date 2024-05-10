@@ -9,9 +9,9 @@ class _NameText extends StatelessWidget {
     return Text(
       data,
       style: TextStyle(
-        fontWeight: FontWeight.w500,
-        color: kFontColorPallets[0],
-        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontSize: 20.sp,
       ),
       textAlign: TextAlign.left,
     );

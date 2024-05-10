@@ -8,6 +8,7 @@ class HomeController extends GetxController {
   List<Product> getFashionProduct() => productService.getFashion();
 
   void goToDetailProduct(Product product) {
+    // print(product);
     Get.toNamed(Routes.product + "/${product.id}");
   }
 }

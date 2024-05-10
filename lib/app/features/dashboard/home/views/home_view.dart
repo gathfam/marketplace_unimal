@@ -20,8 +20,55 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
         body: SafeArea(
       child: Container(
-        padding: EdgeInsets.all(25.sp),
+        height: 1.sh,
+        width: 1.sw,
+        padding: EdgeInsets.only(
+          top: 25.sp,
+          bottom: 25.sp,
+        ),
+        child: Wrap(
+          runSpacing: 10.sp,
+          children: [_topPopuler(controller),],
+        ),
       ),
     ));
   }
+}
+
+Widget _topPopuler(controller) {
+  return Wrap(
+    children: [
+      Padding(
+        padding: EdgeInsets.only(left: 25.0.sp),
+        child: Text(
+          "Top \nPopuler",
+          style: TextStyle(fontSize: 16.sp),
+        ),
+      ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: _ProductContent(controller.getAllProduct(),
+            onPressed: ((product) => controller.goToDetailProduct(product))),
+      ),
+    ],
+  );
+}
+
+Widget _explore(controller) {
+  return Wrap(
+    children: [
+      Padding(
+        padding: EdgeInsets.only(left: 25.0.sp),
+        child: Text(
+          "Explore",
+          style: TextStyle(fontSize: 16.sp),
+        ),
+      ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: _ProductContent(controller.getAllProduct(),
+            onPressed: ((product) => controller.goToDetailProduct(product))),
+      ),
+    ],
+  );
 }

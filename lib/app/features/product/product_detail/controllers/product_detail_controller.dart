@@ -15,7 +15,7 @@ class ProductDetailController extends GetxController {
   void onInit() {
     super.onInit();
     data.value = _getProduct();
-    dataUser.value = _getUser();
+    // dataUser.value = _getUser();
 
     scroll.addListener(onScroll);
   }
@@ -32,17 +32,17 @@ class ProductDetailController extends GetxController {
     return product;
   }
 
-  User? _getUser() {
-    String? id = data.value?.idUser;
+  // User? _getUser() {
+  //   String? id = data.value?.idUser;
 
-    User? user;
+  //   User? user;
 
-    if (id != null) {
-      user = userService.getUserByID(id);
-    }
+  //   if (id != null) {
+  //     user = userService.getUserByID(id);
+  //   }
 
-    return user;
-  }
+  //   return user;
+  // }
 
   void onScroll() {
     if (scroll.position.pixels > 100 && opacityActionButton.value == 1) {
