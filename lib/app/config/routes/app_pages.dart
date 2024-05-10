@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../features/authentication/index/views/screens/login_screen.dart';
 import '../../features/authentication/register/bindings/register_binding.dart';
 import '../../features/authentication/register/views/register_view.dart';
+import '../../features/dashboard/cart/pembayaran/views/pembayaran_view.dart';
 import '../../features/dashboard/cart/views/cart_view.dart';
 import '../../features/dashboard/explore/views/screens/explore_screen.dart';
 import '../../features/dashboard/home/views/home_view.dart';
@@ -12,7 +13,8 @@ import '../../features/dashboard/profile/views/profile_view.dart';
 import '../../features/landing/views/landing_view.dart';
 import '../../features/product/product_detail/views/screens/product_detail_screen.dart';
 import '../../features/splash_screen/views/splash_screen_view.dart';
-import '../../features/dashboard/cart/pembayaran/views/pembayaran_view.dart';
+import '../../features/dashboard/cart/pembayaran/resi/bindings/resi_binding.dart';
+import '../../features/dashboard/cart/pembayaran/resi/views/resi_view.dart';
 
 // import '../../features/dashboard/home/bindings/home_binding.dart';
 
@@ -80,6 +82,11 @@ class AppPages {
       name: Routes.PEMBAYARAN,
       page: () => const PembayaranView(),
       binding: PembayaranBinding(),
+    ),
+    GetPage(
+      name: Routes.RESI,
+      page: () => const ResiView(),
+      binding: ResiBinding(),
     ),
   ];
 }

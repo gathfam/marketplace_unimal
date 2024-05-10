@@ -42,6 +42,10 @@ class PembayaranView extends GetView<PembayaranController> {
                   // color: Colors.grey,
                 ),
                 _ProductContent(controller.GetItemPembayaran()),
+                Divider(),
+                _opsiPengiriman(),
+                Divider(),
+                _metodePembayaran()
               ],
             ),
           ),
@@ -52,16 +56,104 @@ class PembayaranView extends GetView<PembayaranController> {
   }
 }
 
+
+Widget _opsiPengiriman() {
+  return Container(
+    width: 1.sw,
+    // height: 150.h,
+    child: Wrap(
+      direction: Axis.vertical,
+      spacing: 5.sp,
+      // crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Opsi Pengiriman",
+          style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Reguler",
+              style: TextStyle(fontSize: 12.sp),
+            ),
+            Container(
+              width: 0.86.sw,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Akan diterima pada tanggal 21-25 Juni",
+                    style: TextStyle(fontSize: 12.sp, color: Colors.grey[500]),
+                  ),
+                  Text(
+                    "Rp. 30.000",
+                    style: TextStyle(fontSize: 12.sp),
+                  ),
+                ],
+              ),
+            )
+          ],
+        )
+      ],
+    ),
+  );
+}
+
+Widget _metodePembayaran() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        "Metode Pembayaran",
+        style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
+      ),
+      Column(
+        children: [
+          RadioListTile<String>(
+            title: Text(
+              'COD',
+              style: TextStyle(
+                fontSize: 12.sp,
+              ),
+            ),
+            value: 'COD',
+            groupValue: "COD",
+            onChanged: (value) {},
+          ),
+          // RadioListTile<String>(
+          //   title: Text(
+          //     'OVO',
+          //     style: TextStyle(
+          //       fontSize: 12.sp,
+          //     ),
+          //   ),
+          //   value: 'OVO',
+          //   groupValue: "ovo",
+          //   onChanged: (value) {},
+          // ),
+          // RadioListTile<String>(
+          //   title: Text(
+          //     'Alfamart',
+          //     style: TextStyle(
+          //       fontSize: 12.sp,
+          //     ),
+          //   ),
+          //   value: 'Alfamart',
+          //   groupValue: "alfamart",
+          //   onChanged: (value) {},
+          // ),
+        ],
+      ),
+    ],
+  );
+}
+
 Widget _buatPesanan() {
   return Container(
     padding: EdgeInsets.all(25.sp),
     width: 1.sw,
     height: 100.h,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(15.sp),
-      ),
-    ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,

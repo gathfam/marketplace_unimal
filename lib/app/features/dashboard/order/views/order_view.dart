@@ -25,7 +25,13 @@ class OrderView extends GetView<OrderController> {
         body: Container(
           padding: EdgeInsets.all(25.sp),
           child: Column(
-            children: [_ProductContent(controller.getListOrder())],
+            children: [
+              InkWell(
+                  onTap: () {
+                    Get.toNamed('/resi');
+                  },
+                  child: _ProductContent(controller.getListOrder()))
+            ],
           ),
         ));
   }

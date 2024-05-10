@@ -13,6 +13,7 @@ class Routes {
   static const ORDER = '/order';
   static const SPLASH_SCREEN = '/splash-screen';
   static const PEMBAYARAN = '/pembayaran';
+  static const RESI = '/resi';
 }
 
 /// contains a list of route names.
