@@ -26,9 +26,11 @@ class HomeView extends GetView<HomeController> {
           top: 25.sp,
           bottom: 25.sp,
         ),
-        child: Wrap(
-          runSpacing: 10.sp,
-          children: [_topPopuler(controller),],
+        child: SingleChildScrollView(
+          child: Wrap(
+            runSpacing: 10.sp,
+            children: [_topPopuler(controller), _explore(controller)],
+          ),
         ),
       ),
     ));
@@ -47,8 +49,11 @@ Widget _topPopuler(controller) {
       ),
       SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: _ProductContent(controller.getAllProduct(),
-            onPressed: ((product) => controller.goToDetailProduct(product))),
+        child: Padding(
+          padding: EdgeInsets.only(left: 25.0.sp),
+          child: _ProductContent(controller.getAllProduct(),
+              onPressed: ((product) => controller.goToDetailProduct(product))),
+        ),
       ),
     ],
   );
@@ -64,9 +69,9 @@ Widget _explore(controller) {
           style: TextStyle(fontSize: 16.sp),
         ),
       ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: _ProductContent(controller.getAllProduct(),
+      Padding(
+        padding: EdgeInsets.only(left: 25.0.sp),
+        child: _ProductContent(controller.getAllExplore(),
             onPressed: ((product) => controller.goToDetailProduct(product))),
       ),
     ],

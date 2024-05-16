@@ -5,7 +5,7 @@ class HomeController extends GetxController {
   final productService = ProductService();
 
   List<Product> getAllProduct() => productService.getAll();
-  List<Product> getFashionProduct() => productService.getFashion();
+  List<Product> getAllExplore() => productService.getExplore();
 
   void goToDetailProduct(Product product) {
     // print(product);

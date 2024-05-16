@@ -21,7 +21,10 @@ class ImageEtalasePath {
   static const EminaPowder = "$_folderPath/EminaPowder25000.jpg";
   static const EminaSerum = "$_folderPath/EminaSerum40000.jpg";
   static const GarnierMicellar = "$_folderPath/GarnierMicellar35000.jpg";
-  static const NpureCream = "$_folderPath/NpureCream79000.jpg";
+  static const NpureCream = "$_folderPath/NpureCream79000.png";
+  static const OriginoteCeratinol = "$_folderPath/OriginoteCeratinol45000.jpg";
+  static const OriginoteEyeserum = "$_folderPath/OriginoteEyeserum57000.jpeg";
+  static const OriginoteMicellar = "$_folderPath/OriginoteMicellar55000.png";
 }
 
 class ImageVectorPath {
