@@ -6,7 +6,7 @@ import 'package:marketplace/app/constans/app_constants.dart';
 import 'package:marketplace/app/utils/ui/ui_utils.dart';
 
 class ProductCardData {
-  final ImageProvider image;
+  final String image;
   final double price;
   final int id;
   final String brand;
@@ -41,14 +41,8 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10.sp),
-      // margin: data.id == 0
-      //     ? EdgeInsets.only(left: 25.sp)
-      //     : EdgeInsets.only(left: 0.sp),
-      // color: Colors.black,
-      // height: 170.h,
       width: 150.w,
       child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Hero(
             tag: heroTag,
@@ -93,7 +87,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  Widget _buildImage(ImageProvider image) {
+  Widget _buildImage(image) {
     return Container(
       margin: EdgeInsets.all(2.0.sp),
       // padding: EdgeInsets.all(10.sp),
@@ -109,8 +103,9 @@ class ProductCard extends StatelessWidget {
             ),
           ],
           image: DecorationImage(
-            image: image,
-          )),
+              image: NetworkImage(
+                  "http://192.168.1.2/backend-penjualan/gambar/$image"),
+              fit: BoxFit.cover)),
       // child: Image(
       //   image: image,
       //   fit: BoxFit.cover,

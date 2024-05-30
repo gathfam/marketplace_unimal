@@ -8,13 +8,14 @@ class ProductDetailController extends GetxController {
   final opacityActionButton = 1.0.obs;
   final isVisibleActionButton = true.obs;
 
-  final Rx<Product?> data = Rx(null);
+  final Rx data = Rx(null);
   final Rx<User?> dataUser = Rx(null);
 
   @override
   void onInit() {
     super.onInit();
-    data.value = _getProduct();
+    // print("arguments: ${Get.arguments}");
+    data.value = Get.arguments;
     // dataUser.value = _getUser();
 
     scroll.addListener(onScroll);
@@ -60,12 +61,4 @@ class ProductDetailController extends GetxController {
   }
 
   void back() => Get.back();
-
-  void changeFavoriteProduct(Product product, bool favorite) {
-    AppSnackbar.showStatusFavoriteProduct(
-      productImage: product.images[0],
-      productName: product.name,
-      isFavorite: favorite,
-    );
-  }
 }

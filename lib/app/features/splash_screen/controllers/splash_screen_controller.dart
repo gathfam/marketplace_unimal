@@ -5,9 +5,9 @@ class SplashScreenController extends GetxController {
 
   @override
   void onInit() {
-    print('run');
+    // print('run');
     Future.delayed(Duration(seconds: 3), () {
-      print('run1');
+      // print('run1');
       Get.back();
       Get.offAndToNamed("/landing-page");
     });

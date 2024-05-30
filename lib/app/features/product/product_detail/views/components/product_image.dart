@@ -3,7 +3,7 @@ part of product_detail;
 class _ProductImage extends StatelessWidget {
   _ProductImage(this.images, {Key? key}) : super(key: key);
 
-  final List<ImageProvider> images;
+  final String images;
   final _index = 0.obs;
 
   @override
@@ -13,29 +13,38 @@ class _ProductImage extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 1,
-          child: PageView.builder(
-            itemCount: images.length,
-            itemBuilder: (context, index) {
-              return Image(
-                image: images[index],
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.topCenter,
-              );
-            },
-            onPageChanged: (value) {
-              print(value);
-              _index.value = value;
-            },
+          child: Image(
+            image: NetworkImage(
+                "http://192.168.1.2/backend-penjualan/gambar/$images"),
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.topCenter,
           ),
-        ),
-        if (images.length > 1)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 50),
-            child: Indicator(
-              controller: _index,
-              totalIndicator: images.length,
-            ),
-          ),
+        )
+        // AspectRatio(
+        //   aspectRatio: 1,
+        //   child: PageView.builder(
+        //     itemCount: images.length,
+        //     itemBuilder: (context, index) {
+        //       return Image(
+        //         image: images[index],
+        //         fit: BoxFit.fitWidth,
+        //         alignment: Alignment.topCenter,
+        //       );
+        //     },
+        //     onPageChanged: (value) {
+        //       print(value);
+        //       _index.value = value;
+        //     },
+        //   ),
+        // ),
+        // if (images.length > 1)
+        //   Padding(
+        //     padding: const EdgeInsets.only(bottom: 50),
+        //     child: Indicator(
+        //       controller: _index,
+        //       totalIndicator: images.length,
+        //     ),
+        //   ),
       ],
     );
   }

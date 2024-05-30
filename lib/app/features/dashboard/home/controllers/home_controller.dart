@@ -2,14 +2,18 @@ part of home;
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
-  final productService = ProductService();
+  final apiService = RestApiServices();
 
-  List<Product> getAllProduct() => productService.getAll();
-  List<Product> getAllExplore() => productService.getExplore();
+  getAllProduct() => apiService.fetchData(
+      baseUrl: "http://192.168.1.2/backend-penjualan/ProdukAPI.php");
+  getAllExplore() => apiService.fetchData(
+      baseUrl: "http://192.168.1.2/backend-penjualan/ProdukAPI.php");
+  // List<Product> getAllExplore() => productService.getExplore();
 
-  void goToDetailProduct(Product product) {
+  void goToDetailProduct(Map<String, dynamic> product) {
     // print(product);
-    Get.toNamed(Routes.product + "/${product.id}");
+    Get.toNamed(Routes.product + "/${product['id_produk']}",
+        arguments: product);
   }
 
   void OpenDialogAds() {

@@ -13,107 +13,31 @@ class ProductService extends RestApiServices {
 
   Product? getProductByID(String id) {
     final allProduct = getAll();
-    final result = allProduct.where((product) => product.id == id).toList();
+    final result =
+        allProduct.where((product) => product.id_produk == id).toList();
     return (result.length > 0) ? result[0] : null;
   }
 
   List<Product> getAll() {
-    return [EminaLipmask, EminaPowder, EminaSerum];
+    final response = fetchData(
+        baseUrl: "http://192.168.1.2/backend-penjualan/ProdukAPI.php");
+    // print("response: $response");
+    return [];
   }
 
   List<Product> getExplore() {
-    return [
-      OriginoteCeratinol,
-      OriginoteEyeserum,
-      OriginoteMicellar,
-      GarnierMicellar,
-      NpureCream
-    ];
+    return [];
   }
 
   List<Product> getListCart() {
-    return [EminaLipmask];
+    return [];
   }
 
   List<Product> getListPembayaran() {
-    return [EminaLipmask];
+    return [];
   }
 
   List<Product> getListOrder() {
-    return [EminaLipmask];
+    return [];
   }
-
-  final EminaLipmask = Product(
-    id: "35366",
-    images: [AssetImage(ImageEtalasePath.EminaLipmask)],
-    brand: "Emina",
-    name: "Lipmask",
-    price: 30,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final EminaPowder = Product(
-    id: "35367",
-    images: [AssetImage(ImageEtalasePath.EminaPowder)],
-    brand: "Emina",
-    name: "Powder",
-    price: 25,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final EminaSerum = Product(
-    id: "35368",
-    images: [AssetImage(ImageEtalasePath.EminaSerum)],
-    brand: "Emina",
-    name: "Serum",
-    price: 40,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-
-  final GarnierMicellar = Product(
-    id: "45366",
-    images: [AssetImage(ImageEtalasePath.GarnierMicellar)],
-    brand: "Garnier",
-    name: "Micellar water",
-    price: 35,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final NpureCream = Product(
-    id: "45367",
-    images: [AssetImage(ImageEtalasePath.NpureCream)],
-    brand: "Npure",
-    name: "Cream",
-    price: 79,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final OriginoteCeratinol = Product(
-    id: "35368",
-    images: [AssetImage(ImageEtalasePath.OriginoteCeratinol)],
-    brand: "Originote",
-    name: "Ceratinol",
-    price: 45,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final OriginoteEyeserum = Product(
-    id: "35368",
-    images: [AssetImage(ImageEtalasePath.OriginoteEyeserum)],
-    brand: "Originote",
-    name: "Eye serum",
-    price: 57,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
-  final OriginoteMicellar = Product(
-    id: "35368",
-    images: [AssetImage(ImageEtalasePath.OriginoteMicellar)],
-    brand: "Originote",
-    name: "Micellar water",
-    price: 57,
-    description:
-        "Lorem ipsum At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-  );
 }

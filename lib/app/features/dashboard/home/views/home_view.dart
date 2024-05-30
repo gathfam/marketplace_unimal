@@ -52,7 +52,10 @@ Widget _topPopuler(controller) {
         child: Padding(
           padding: EdgeInsets.only(left: 25.0.sp),
           child: _ProductContent(controller.getAllProduct(),
-              onPressed: ((product) => controller.goToDetailProduct(product))),
+              onPressed: ((product) {
+            // print(product);
+            controller.goToDetailProduct(product);
+          })),
         ),
       ),
     ],

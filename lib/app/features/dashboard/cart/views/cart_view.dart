@@ -90,7 +90,7 @@ class _ProductContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data);
+    // print(data);
     // return Text("TES");
     return Wrap(
         alignment: WrapAlignment.spaceBetween,
@@ -98,14 +98,14 @@ class _ProductContent extends StatelessWidget {
         children: List.generate(data.length, (int index) {
           // print(data[index]);
           return CartCard(
-            heroTag: data[index].id,
+            heroTag: data[index].id_produk,
             data: CartCardData(
               id: index,
-              image: data[index].images[0],
+              image: data[index].gambar_produk[0],
               initialFavorite: true,
-              brand: data[index].brand,
-              name: data[index].name,
-              price: data[index].price,
+              brand: data[index].merk_produk,
+              name: data[index].nama_produk,
+              price: data[index].harga,
             ),
             onTap: () {
               // onPressed(data[index]);

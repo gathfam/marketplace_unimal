@@ -6,14 +6,12 @@ class _PriceText extends StatelessWidget {
   final String data;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Text(
-      "Rp ${data}00",
-      style: TextStyle(
-        // color: Theme.of(context).primaryColor,
-        fontSize: 16.sp,
-        // fontWeight: FontWeight.bold,
-      ),
-    ));
+    return Text(
+          "Rp $data",
+          style: TextStyle(
+    // color: Theme.of(context).primaryColor,
+    fontSize: 16.sp, 
+          ),
+        );
   }
 }

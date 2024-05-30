@@ -60,8 +60,8 @@ class ProductDetailScreen extends GetView<ProductDetailController> {
     );
   }
 
-  Widget _buildProductDetail({required Product product}) {
-    print(product);
+  Widget _buildProductDetail({required product}) {
+    // print("product: $product");
     return Stack(
       children: [
         // DETAIL CONTENT
@@ -72,7 +72,9 @@ class ProductDetailScreen extends GetView<ProductDetailController> {
               Stack(
                 children: [
                   // BACKGROUND IMAGES
-                  Hero(tag: product.id, child: _ProductImage(product.images)),
+                  Hero(
+                      tag: product['id_produk'],
+                      child: _ProductImage(product["gambar_produk"])),
 
                   // BODY
                   _BodyContent(
@@ -80,18 +82,18 @@ class ProductDetailScreen extends GetView<ProductDetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: kSpacing),
-                        _NameText(product.name),
+                        _NameText(product["nama_produk"]),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Flexible(
                               flex: 2,
-                              child: _PriceText(product.price.toString()),
+                              child: _PriceText(product['harga_produk'].toString()),
                             ),
                           ],
                         ),
                         SizedBox(height: kSpacing),
-                        _DescriptionText(product.description),
+                        _DescriptionText(product['deskripsi_produk']),
                       ],
                     ),
                   ),
